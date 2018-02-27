@@ -21,7 +21,8 @@ class ListHydratorTest extends TestCase
         $this->assertEquals($data, $actual);
     }
 
-    public function testInvalidData(): void {
+    public function testInvalidData(): void
+    {
         $hydrator = $this->createMock(Hydrator::class);
         $hydrator
             ->expects($this->never())
