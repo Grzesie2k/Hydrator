@@ -3,7 +3,8 @@
     "description": "Simple way from array to Your object.",
     "type": "library",
     "require-dev": {
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.0",
+        "friendsofphp/php-cs-fixer": "^2.10"
     },
     "license": "MIT",
     "authors": [
@@ -12,6 +13,10 @@
             "email": "grzegorz@kielak.me"
         }
     ],
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer fix --diff --dry-run"
+    },
     "autoload": {
         "psr-4": {
             "Grzesie2k\\Hydrator\\": "src/"
