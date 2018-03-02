@@ -2,6 +2,9 @@
     "name": "grzesie2k/object-hydrator",
     "description": "Simple way from array to Your object.",
     "type": "library",
+    "require": {
+        "phpdocumentor/reflection-docblock": "^4.3"
+    },
     "require-dev": {
         "phpunit/phpunit": "^7.0",
         "friendsofphp/php-cs-fixer": "^2.10"
