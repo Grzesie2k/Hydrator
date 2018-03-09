@@ -4,6 +4,9 @@ namespace Grzesie2k\Hydrator\Fixture;
 
 class Product
 {
+    /** @var Store */
+    private $store;
+
     /** @var int */
     private $quantity;
 
@@ -16,8 +19,15 @@ class Product
     /** @var float */
     private $price;
 
-    public function __construct(int $quantity, string $name, ?string $description, float $price)
+    public function __construct(
+        Store $store,
+        int $quantity,
+        string $name,
+        ?string $description,
+        float $price
+    )
     {
+        $this->store = $store;
         $this->quantity = $quantity;
         $this->name = $name;
         $this->description = $description;

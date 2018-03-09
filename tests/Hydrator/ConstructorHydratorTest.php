@@ -3,6 +3,7 @@
 namespace Grzesie2k\Hydrator\Hydrator;
 
 use Grzesie2k\Hydrator\Fixture\Product;
+use Grzesie2k\Hydrator\Fixture\Store;
 use Grzesie2k\Hydrator\Hydrator;
 use PHPUnit\Framework\TestCase;
 
@@ -13,11 +14,19 @@ class ConstructorHydratorTest extends TestCase
 
     protected function setUp(): void
     {
+        $storeHydrator = $this->createMock(Hydrator::class);
+        $storeHydrator
+            ->method('hydrate')
+            ->willReturnCallback(function ($data) {
+                return new Store($data->name);
+            });
+
         $this->hydrator = new ConstructorHydrator(Product::class, [
-            'quantity' => $this->createParameterHydratorMock(),
-            'name' => $this->createParameterHydratorMock(),
-            'description' => $this->createParameterHydratorMock(),
-            'price' => $this->createParameterHydratorMock(),
+            'store' => $storeHydrator,
+            'quantity' => $this->createMixedHydratorMock(),
+            'name' => $this->createMixedHydratorMock(),
+            'description' => $this->createMixedHydratorMock(),
+            'price' => $this->createMixedHydratorMock(),
         ]);
     }
 
@@ -42,7 +51,7 @@ class ConstructorHydratorTest extends TestCase
         $this->hydrator->hydrate($data);
     }
 
-    private function createParameterHydratorMock(): Hydrator
+    private function createMixedHydratorMock(): Hydrator
     {
         $mock = $this->createMock(Hydrator::class);
         $mock->method('hydrate')->willReturnArgument(0);
@@ -55,20 +64,33 @@ class ConstructorHydratorTest extends TestCase
         return [
             [
                 (object)[
+                    'store' => (object)['name' => 'store'],
                     'quantity' => 0,
                     'description' => 'Product description',
                     'name' => 'Product name',
                     'price' => 3.14,
                 ],
-                new Product(0, 'Product name', 'Product description', 3.14)
+                new Product(
+                    new Store('store'),
+                    0, 'Product name',
+                    'Product description',
+                    3.14
+                )
             ],
             [
                 (object)[
+                    'store' => (object)['name' => 'test'],
                     'quantity' => PHP_INT_MAX,
                     'name' => 'Lorem ipsum',
                     'price' => 0.123456789,
                 ],
-                new Product(PHP_INT_MAX, 'Lorem ipsum', null, 0.123456789)
+                new Product(
+                    new Store('test'),
+                    PHP_INT_MAX,
+                    'Lorem ipsum',
+                    null,
+                    0.123456789
+                )
             ]
         ];
     }
