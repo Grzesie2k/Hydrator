@@ -33,8 +33,9 @@ class ConstructorHydrator implements Hydrator
         if (!$data instanceof \stdClass) {
             throw new \InvalidArgumentException('Expected instance of stdClass');
         }
-        $unknownArgumentsNames = \array_diff_key((array)$data, $this->hydratorMap);
-        if (!empty($unknownArgumentsNames)) {
+        $unknownArguments = \array_diff_key((array)$data, $this->hydratorMap);
+        if (!empty($unknownArguments)) {
+            $unknownArgumentsNames = \array_keys($unknownArguments);
             throw new \InvalidArgumentException(
                 'Unknown object properties: ' . implode(', ', $unknownArgumentsNames)
             );
