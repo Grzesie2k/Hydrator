@@ -1,4 +1,5 @@
 # Hydrator 
+[![Coverage Status](https://coveralls.io/repos/github/Grzesie2k/Hydrator/badge.svg?branch=master)](https://coveralls.io/github/Grzesie2k/Hydrator?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7477160d779ec13e4dd0/maintainability)](https://codeclimate.com/github/Grzesie2k/Hydrator/maintainability)
 ## Installation
 ```bash
