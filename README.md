@@ -1,7 +1,8 @@
 # Hydrator 
+
+[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
 [![Coverage Status](https://coveralls.io/repos/github/Grzesie2k/Hydrator/badge.svg?branch=master)](https://coveralls.io/github/Grzesie2k/Hydrator?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7477160d779ec13e4dd0/maintainability)](https://codeclimate.com/github/Grzesie2k/Hydrator/maintainability)
-[![Latest Stable Version](https://poser.pugx.org/grzesie2k/oject-hydrator)](https://packagist.org/packages/grzesie2k/object-hydrator)
 
 PHP PSR-7 compatible cacheable hydrator for modern application.
 
