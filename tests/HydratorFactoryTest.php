@@ -2,10 +2,19 @@
 
 namespace Grzesie2k\Hydrator;
 
+use phpDocumentor\Reflection\TypeResolver;
 use PHPUnit\Framework\TestCase;
 
 class HydratorFactoryTest extends TestCase
 {
+    /** @var TypeResolver */
+    private $typeResolver;
+
+    protected function setUp(): void
+    {
+        $this->typeResolver = new TypeResolver();
+    }
+
     public function testPrimitiveHydration(): void
     {
         $expected = $this->createMock(Hydrator::class);
@@ -32,14 +41,14 @@ class HydratorFactoryTest extends TestCase
             $matchingStrategy,
             $unknownStrategy, $unknownStrategy
         ];
-        $hydratorFactory = new HydratorFactory($strategies);
+        $hydratorFactory = new HydratorFactory($strategies, $this->typeResolver);
         $hydrator = $hydratorFactory->createHydrator('int');
         $this->assertEquals($expected, $hydrator);
     }
 
     public function testMissingStrategyException(): void
     {
-        $hydratorFactory = new HydratorFactory([]);
+        $hydratorFactory = new HydratorFactory([], $this->typeResolver);
         $this->expectException(\RuntimeException::class);
         $hydratorFactory->createHydrator('int');
     }
