@@ -1,5 +1,5 @@
 # Hydrator 
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/7477160d779ec13e4dd0/maintainability)](https://codeclimate.com/github/Grzesie2k/Hydrator/maintainability)
 ## Installation
 ```bash
 composer install grzesie2k/hydrator
