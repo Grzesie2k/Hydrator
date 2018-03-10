@@ -2,7 +2,6 @@
 
 namespace Grzesie2k\Hydrator\Fixture;
 
-
 class User
 {
     private $id;
