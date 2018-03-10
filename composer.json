@@ -1,6 +1,6 @@
 {
-    "name": "grzesie2k/object-hydrator",
-    "description": "Simple way from array to Your object.",
+    "name": "grzesie2k/hydrator",
+    "description": "PHP PSR-7 compatible cacheable hydrator for modern application.",
     "type": "library",
     "require": {
         "phpdocumentor/reflection-docblock": "^4.3"
