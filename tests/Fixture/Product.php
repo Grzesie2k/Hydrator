@@ -2,9 +2,12 @@
 
 namespace Grzesie2k\Hydrator\Fixture;
 
+// Test class alias
+use Grzesie2k\Hydrator\Fixture\Store as Source;
+
 class Product
 {
-    /** @var Store */
+    /** @var Source */
     private $store;
 
     /** @var int */
@@ -20,7 +23,7 @@ class Product
     private $price;
 
     public function __construct(
-        Store $store,
+        Source $store,
         int $quantity,
         string $name,
         ?string $description,

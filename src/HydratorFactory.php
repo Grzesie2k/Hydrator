@@ -12,14 +12,10 @@ class HydratorFactory
     /** @var HydratorStrategy[] */
     private $strategies;
 
-    /**
-     * HydratorFactory constructor.
-     * @param HydratorStrategy[] $strategies
-     */
-    public function __construct(array $strategies)
+    public function __construct(array $strategies, TypeResolver $typeResolver)
     {
         $this->strategies = $strategies;
-        $this->typeResolver = new TypeResolver();
+        $this->typeResolver = $typeResolver;
     }
 
     /**

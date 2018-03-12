@@ -43,5 +43,4 @@ class PrimitiveHydratorStrategyTest extends TestCase
             [new Array_(), null],
         ];
     }
-
 }

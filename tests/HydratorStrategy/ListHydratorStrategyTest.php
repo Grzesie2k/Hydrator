@@ -54,7 +54,6 @@ class ListHydratorStrategyTest extends TestCase
             ->method('createHydrator');
         $actual = $this->strategy->createHydrator($type, $hydratorFactory);
         $this->assertNull($actual);
-
     }
 
     public static function validHydratorCreationDataProvider(): array

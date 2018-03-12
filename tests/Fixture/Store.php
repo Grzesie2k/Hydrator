@@ -13,5 +13,4 @@ class Store
     {
         $this->name = $name;
     }
-
 }
