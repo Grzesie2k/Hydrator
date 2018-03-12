@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Grzesie2k/Hydrator/badge.svg?branch=master)](https://coveralls.io/github/Grzesie2k/Hydrator?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7477160d779ec13e4dd0/maintainability)](https://codeclimate.com/github/Grzesie2k/Hydrator/maintainability)
 
-PHP PSR-7 compatible cacheable hydrator for modern application.
+PHP7 PSR-5 compatible cacheable hydrator for modern application.
 
 ## Installation
 ```bash
